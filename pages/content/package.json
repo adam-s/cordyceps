@@ -1,0 +1,29 @@
+{
+  "name": "@crx-deep-research/content",
+  "version": "0.0.1",
+  "description": "chrome extension content script",
+  "private": true,
+  "sideEffects": true,
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "pnpm run clean && tsc --noEmit && vite build",
+    "build:watch": "cross-env __DEV__=true vite build -w --mode development",
+    "dev": "pnpm build:watch",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "pnpm lint --fix",
+    "prettier": "prettier . --write --ignore-path ../../.prettierignore",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@crx-deep-research/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@crx-deep-research/hmr": "workspace:*",
+    "@crx-deep-research/tsconfig": "workspace:*",
+    "load-json-file": "^7.0.1",
+    "vite-plugin-dts": "^4.5.4"
+  }
+}

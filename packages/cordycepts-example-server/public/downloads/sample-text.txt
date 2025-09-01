@@ -1,0 +1,20 @@
+Hello, World! This is a server-side test download file.
+Generated at: 2025-08-13T00:00:00.000Z
+
+This file is served directly from the server to test
+download functionality in Chrome extensions.
+
+Features tested:
+- Server-side file download
+- Static file serving
+- HTTP headers for downloads
+- Content-Type headers
+- Content-Disposition headers
+
+Server-side downloads are more realistic for testing as they:
+1. Simulate real-world download scenarios
+2. Test network handling properly
+3. Allow testing of various file types
+4. Enable testing of different HTTP response codes
+5. Support testing of download resumption
+6. Allow testing of authentication scenarios

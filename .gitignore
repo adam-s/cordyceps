@@ -1,0 +1,27 @@
+# dependencies
+**/node_modules
+
+# testing
+**/coverage
+
+# build
+**/dist
+**/build
+
+# env
+**/.env.local
+**/.env
+
+# data
+**/server/src/data/
+
+# chat examples
+**/services/chat/examples
+
+# etc
+.DS_Store
+.idea
+**/.turbo
+
+# compiled
+chrome-extension/public/manifest.json

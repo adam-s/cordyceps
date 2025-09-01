@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Test Page 1</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    .nav-button {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px;
+      box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3);
+    }
+
+    .nav-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(238, 90, 36, 0.4);
+    }
+
+    .status {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-family: monospace;
+    }
+
+    .hash-nav {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🧭 Navigation Test Page 1</h1>
+
+    <div class="status" id="page-status">
+      Page: nav-page-1.html<br>
+      URL: <span id="current-url">Loading...</span><br>
+      History Length: <span id="history-length">Unknown</span>
+    </div>
+
+    <div class="navigation-actions">
+      <h2>🚀 Cross-Document Navigation</h2>
+      <a href="/nav-page-2" class="nav-button" id="nav-to-page-2">Go to Page
+        2</a>
+      <a href="/nav-page-3" class="nav-button" id="nav-to-page-3">Go to Page
+        3</a>
+      <a href="/" class="nav-button" id="nav-to-home">Back to Home</a>
+    </div>
+
+    <div class="hash-nav">
+      <h2>📍 Same-Document Navigation (Hash)</h2>
+      <a href="#section-a" class="nav-button" id="nav-to-section-a">Go to
+        Section A</a>
+      <a href="#section-b" class="nav-button" id="nav-to-section-b">Go to
+        Section B</a>
+      <button class="nav-button" onclick="clearHash()" id="clear-hash">Clear
+        Hash</button>
+    </div>
+
+    <div class="history-controls">
+      <h2>⏳ History Navigation</h2>
+      <button class="nav-button" onclick="goBack()" id="history-back">Browser
+        Back</button>
+      <button class="nav-button" onclick="goForward()"
+        id="history-forward">Browser Forward</button>
+    </div>
+
+    <div id="section-a"
+      style="margin-top: 100px; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 8px;">
+      <h3>📍 Section A</h3>
+      <p>This is section A for hash navigation testing.</p>
+    </div>
+
+    <div id="section-b"
+      style="margin-top: 50px; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 8px;">
+      <h3>📍 Section B</h3>
+      <p>This is section B for hash navigation testing.</p>
+    </div>
+
+    <div
+      style="margin-top: 100px; padding: 20px; background: rgba(0, 255, 0, 0.1); border-radius: 8px;">
+      <h3>🧪 Test Markers</h3>
+      <p>This page is designed for automated navigation testing.</p>
+      <ul>
+        <li>Page identifier: <code id="page-identifier">nav-page-1</code></li>
+        <li>Navigation ready: <code id="nav-ready">false</code></li>
+        <li>Hash state: <code id="hash-state">none</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function updateStatus() {
+      document.getElementById('current-url').textContent = window.location.href;
+      document.getElementById('history-length').textContent = history.length;
+      document.getElementById('hash-state').textContent = window.location.hash || 'none';
+    }
+
+    function goBack() {
+      console.log('🔙 Calling history.back()');
+      history.back();
+    }
+
+    function goForward() {
+      console.log('🔜 Calling history.forward()');
+      history.forward();
+    }
+
+    function clearHash() {
+      console.log('🧹 Clearing hash');
+      if (history.pushState) {
+        history.pushState('', document.title, window.location.pathname + window.location.search);
+      } else {
+        window.location.hash = '';
+      }
+      updateStatus();
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function () {
+      updateStatus();
+      document.getElementById('nav-ready').textContent = 'true';
+      console.log('🚀 Navigation Test Page 1 loaded and ready');
+    });
+
+    // Listen for navigation events
+    window.addEventListener('popstate', function (event) {
+      console.log('📍 Popstate event:', event);
+      updateStatus();
+    });
+
+    window.addEventListener('hashchange', function (event) {
+      console.log('📍 Hashchange event:', event);
+      updateStatus();
+    });
+
+    // Update status periodically
+    setInterval(updateStatus, 1000);
+  </script>
+</body>
+
+</html>

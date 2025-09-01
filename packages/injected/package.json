@@ -1,0 +1,34 @@
+{
+  "name": "@crx-deep-research/injected",
+  "version": "0.0.1",
+  "description": "injected dom utils",
+  "private": true,
+  "sideEffects": false,
+  "files": [
+    "dist/**"
+  ],
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "index.ts",
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build:esm": "tsc --module es2015 --target es5 --outDir dist/esm",
+    "build:cjs": "tsc --module commonjs --target es5 --outDir dist/cjs",
+    "ready": "",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "pnpm lint --fix",
+    "prettier": "prettier . --write --ignore-path ../../.prettierignore",
+    "type-check": "tsc --noEmit",
+    "test": "vitest --config vite.config.mts",
+    "test:ui": "vitest --ui --config vite.config.mts",
+    "test:run": "vitest run --config vite.config.mts"
+  },
+  "devDependencies": {
+    "@crx-deep-research/tsconfig": "workspace:*",
+    "jsdom": "^25.0.1",
+    "vitest": "^2.0.0"
+  },
+  "dependencies": {
+    "yaml": "^2.8.0"
+  }
+}

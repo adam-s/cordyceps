@@ -1,0 +1,21 @@
+{
+  "extends": "@crx-deep-research/tsconfig/esnext.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "vs/*": [
+        "vs/*"
+      ],
+    },
+    "types": [
+      "chrome",
+      "vitest/globals"
+    ],
+  },
+  "include": [
+    "index.ts",
+    "vs",
+    "**.*.ts"
+  ]
+}

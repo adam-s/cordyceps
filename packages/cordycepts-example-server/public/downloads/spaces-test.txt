@@ -1,0 +1,11 @@
+File with spaces in name test
+Generated: 2025-08-13T12:00:00.000Z
+
+This file has spaces in its filename to test how download functionality
+handles filenames with spaces and special characters.
+
+Testing scenarios:
+- Filename encoding
+- Browser download handling
+- Extension compatibility
+- User experience with space-containing filenames

@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Nested Iframe - Deep Level Content</title>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: 0.5em;
+      background: linear-gradient(45deg, #e8f5e8, #f0f8ff);
+      margin: 0;
+      font-size: 0.9em;
+    }
+
+    .nested-content {
+      background: white;
+      padding: 0.75em;
+      border-radius: 0.25em;
+      border: 2px solid #4caf50;
+      text-align: center;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 0.4em 0.8em;
+      border-radius: 0.25em;
+      cursor: pointer;
+      font-size: 0.8em;
+      margin: 0.25em;
+    }
+
+    button:hover {
+      background-color: #388e3c;
+    }
+
+    input[type="checkbox"] {
+      transform: scale(0.9);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="nested-content">
+    <h4>🎯 Nested Iframe Content</h4>
+    <p>This is deeply nested inside Iframe 2!</p>
+
+    <label>
+      <input type="checkbox" id="nested-checkbox"> Deep Checkbox
+    </label>
+    <br>
+    <button onclick="nestedAction()">Deep Action</button>
+
+    <p id="nested-status" style="font-size: 0.8em;">Deep Level Ready</p>
+  </div>
+
+  <script>
+    function nestedAction() {
+      const checkbox = document.getElementById('nested-checkbox');
+      const status = document.getElementById('nested-status');
+      const timestamp = new Date().toLocaleTimeString();
+
+      status.textContent = `Deep action at ${timestamp}`;
+      console.log('🎯 Nested iframe button clicked');
+
+      // Send message to parent iframe (iframe2)
+      window.parent.postMessage({
+        source: 'nested-iframe',
+        action: 'deep-button-click',
+        checkboxState: checkbox.checked,
+        timestamp: timestamp,
+        level: 'deeply-nested'
+      }, '*');
+    }
+
+    // Listen for messages
+    window.addEventListener('message', function (event) {
+      console.log('📨 Nested iframe received message:', event.data);
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log('🚀 Nested iframe loaded (deep level)');
+
+      // Announce to parent that nested content is ready
+      window.parent.postMessage({
+        source: 'nested-iframe',
+        action: 'ready',
+        level: 'deeply-nested'
+      }, '*');
+    });
+  </script>
+</body>
+
+</html>

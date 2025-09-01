@@ -1,0 +1,21 @@
+{
+  "extends": "@crx-deep-research/tsconfig/utils",
+  "compilerOptions": {
+    "module": "ES2022",
+    "target": "ES2022",
+    "moduleResolution": "bundler",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "types": [
+      "chrome",
+      "node"
+    ]
+  },
+  "include": [
+    "src",
+    "fixtures",
+    "server",
+    "tests",
+    "*.ts"
+  ],
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Test Page 3</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #48c6ef 0%, #6f86d6 100%);
+      color: white;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    .nav-button {
+      background: linear-gradient(45deg, #00d2ff, #3a7bd5);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px;
+      box-shadow: 0 4px 15px rgba(0, 210, 255, 0.3);
+    }
+
+    .nav-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 210, 255, 0.4);
+    }
+
+    .status {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-family: monospace;
+    }
+
+    .replacestate-actions {
+      margin: 20px 0;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🧭 Navigation Test Page 3</h1>
+
+    <div class="status" id="page-status">
+      Page: nav-page-3.html<br>
+      URL: <span id="current-url">Loading...</span><br>
+      History Length: <span id="history-length">Unknown</span>
+    </div>
+
+    <div class="navigation-actions">
+      <h2>🚀 Cross-Document Navigation</h2>
+      <a href="/nav-page-1" class="nav-button" id="nav-to-page-1">Go to Page
+        1</a>
+      <a href="/nav-page-2" class="nav-button" id="nav-to-page-2">Go to Page
+        2</a>
+      <a href="/" class="nav-button" id="nav-to-home">Back to Home</a>
+    </div>
+
+    <div class="replacestate-actions">
+      <h2>🔄 URL Replacement (replaceState)</h2>
+      <button class="nav-button" onclick="replaceURL('/replaced-url-1')"
+        id="replace-url-1">Replace URL 1</button>
+      <button class="nav-button" onclick="replaceURL('/replaced-url-2')"
+        id="replace-url-2">Replace URL 2</button>
+      <button class="nav-button" onclick="replaceURL('/replaced-url-3')"
+        id="replace-url-3">Replace URL 3</button>
+    </div>
+
+    <div class="history-controls">
+      <h2>⏳ History Navigation</h2>
+      <button class="nav-button" onclick="goBack()" id="history-back">Browser
+        Back</button>
+      <button class="nav-button" onclick="goForward()"
+        id="history-forward">Browser Forward</button>
+    </div>
+
+    <div class="mixed-navigation">
+      <h2>🎭 Mixed Navigation Test</h2>
+      <button class="nav-button" onclick="doMixedNavigation()"
+        id="mixed-nav">Run Mixed Navigation</button>
+      <div id="mixed-nav-log"
+        style="background: rgba(0, 0, 0, 0.2); padding: 10px; margin: 10px 0; border-radius: 5px; font-family: monospace; font-size: 12px; max-height: 200px; overflow-y: auto;">
+      </div>
+    </div>
+
+    <div
+      style="margin-top: 100px; padding: 20px; background: rgba(0, 255, 0, 0.1); border-radius: 8px;">
+      <h3>🧪 Test Markers</h3>
+      <p>This page is designed for automated navigation testing with
+        replaceState functionality.</p>
+      <ul>
+        <li>Page identifier: <code id="page-identifier">nav-page-3</code></li>
+        <li>Navigation ready: <code id="nav-ready">false</code></li>
+        <li>Replace count: <code id="replace-count">0</code></li>
+        <li>Mixed nav status: <code id="mixed-nav-status">ready</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    let replaceCount = 0;
+
+    function updateStatus() {
+      document.getElementById('current-url').textContent = window.location.href;
+      document.getElementById('history-length').textContent = history.length;
+      document.getElementById('replace-count').textContent = replaceCount;
+    }
+
+    function replaceURL(newPath) {
+      replaceCount++;
+      console.log(`🔄 Replacing URL with: ${newPath}`);
+
+      // Update URL using replaceState (doesn't add to history)
+      const newUrl = window.location.origin + newPath;
+      history.replaceState({ replacedPath: newPath, count: replaceCount }, '', newUrl);
+
+      updateStatus();
+      logMixedNav(`URL replaced with: ${newPath}`);
+    }
+
+    function goBack() {
+      console.log('🔙 Calling history.back()');
+      history.back();
+    }
+
+    function goForward() {
+      console.log('🔜 Calling history.forward()');
+      history.forward();
+    }
+
+    function logMixedNav(message) {
+      const log = document.getElementById('mixed-nav-log');
+      const timestamp = new Date().toLocaleTimeString();
+      log.innerHTML += `[${timestamp}] ${message}\n`;
+      log.scrollTop = log.scrollHeight;
+    }
+
+    async function doMixedNavigation() {
+      document.getElementById('mixed-nav-status').textContent = 'running';
+      logMixedNav('Starting mixed navigation test...');
+
+      // Step 1: Replace URL
+      replaceURL('/step-1-replaced');
+      await new Promise(r => setTimeout(r, 500));
+
+      // Step 2: Push new state
+      console.log('🔄 Pushing new state: /step-2-pushed');
+      history.pushState({ step: 2 }, '', window.location.origin + '/step-2-pushed');
+      logMixedNav('Pushed new state: /step-2-pushed');
+      await new Promise(r => setTimeout(r, 500));
+
+      // Step 3: Replace again
+      replaceURL('/step-3-replaced');
+      await new Promise(r => setTimeout(r, 500));
+
+      // Step 4: Push another state
+      console.log('🔄 Pushing new state: /step-4-pushed');
+      history.pushState({ step: 4 }, '', window.location.origin + '/step-4-pushed');
+      logMixedNav('Pushed new state: /step-4-pushed');
+
+      updateStatus();
+      document.getElementById('mixed-nav-status').textContent = 'completed';
+      logMixedNav('Mixed navigation test completed!');
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function () {
+      updateStatus();
+      document.getElementById('nav-ready').textContent = 'true';
+      console.log('🚀 Navigation Test Page 3 loaded and ready');
+    });
+
+    // Listen for navigation events
+    window.addEventListener('popstate', function (event) {
+      console.log('📍 Popstate event:', event);
+      logMixedNav(`Popstate event: ${window.location.pathname}`);
+      updateStatus();
+    });
+
+    // Update status periodically
+    setInterval(updateStatus, 1000);
+  </script>
+</body>
+
+</html>

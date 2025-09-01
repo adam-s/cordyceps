@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Base",
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "outDir": "dist",
+    "allowJs": true,
+    "noEmit": true,
+    "downlevelIteration": true,
+    "isolatedModules": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": false,
+    "resolveJsonModule": true,
+    "noImplicitReturns": false,
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "target": "ES2020",
+    "moduleResolution": "bundler",
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "paths": {}
+  }
+}

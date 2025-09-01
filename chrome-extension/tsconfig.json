@@ -1,0 +1,26 @@
+{
+  "extends": "@crx-deep-research/tsconfig/app.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@root/*": [
+        "/*"
+      ],
+      "@lib/*": [
+        "lib/*"
+      ],
+      "@src/*": [
+        "background/src/*"
+      ],
+      "@assets/*": [
+        "lib/assets/*"
+      ],
+      "@shared/*": [
+        "../packages/shared/src/*"
+      ],
+      "vs/*": [
+        "../packages/vs/vs/*"
+      ]
+    }
+  }
+}

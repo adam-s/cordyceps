@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Iframe 1 - Simple Content</title>
+  <meta charset="utf-8" />
+  <style>
+    body {
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      padding: 1em;
+      background-color: #e3f2fd;
+      margin: 0;
+    }
+
+    .iframe-content {
+      background: white;
+      padding: 1em;
+      border-radius: 0.25em;
+      border: 1px solid #90caf9;
+    }
+
+    button {
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 0.25em;
+      cursor: pointer;
+      margin: 0.5em 0;
+    }
+
+    button:hover {
+      background-color: #1976d2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="iframe-content">
+    <h3>🖼️ Iframe 1 Content</h3>
+    <p>This is the first iframe with simple interactive content.</p>
+
+    <label>
+      <input type="checkbox" id="iframe1-checkbox"> Iframe 1 Checkbox
+    </label>
+    <br>
+    <button onclick="iframe1Action()">Iframe 1 Button</button>
+
+    <p id="iframe1-status">Status: Ready</p>
+  </div>
+
+  <script>
+    function iframe1Action() {
+      const checkbox = document.getElementById('iframe1-checkbox');
+      const status = document.getElementById('iframe1-status');
+      const timestamp = new Date().toLocaleTimeString();
+
+      status.textContent = `Status: Button clicked at ${timestamp}, Checkbox: ${checkbox.checked ? 'Checked' : 'Unchecked'}`;
+      console.log('🎯 Iframe 1 button clicked');
+
+      // Send message to parent
+      window.parent.postMessage({
+        source: 'iframe1',
+        action: 'button-click',
+        checkboxState: checkbox.checked,
+        timestamp: timestamp
+      }, '*');
+    }
+
+    // Listen for messages from parent
+    window.addEventListener('message', function (event) {
+      console.log('📨 Iframe 1 received message:', event.data);
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log('🚀 Iframe 1 loaded');
+    });
+  </script>
+</body>
+
+</html>

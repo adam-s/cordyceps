@@ -1,0 +1,29 @@
+{
+  "extends": "@crx-deep-research/tsconfig/base",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": [
+        "src/*"
+      ],
+      "@shared/*": [
+        "../../packages/shared/src/*"
+      ],
+      "vs/*": [
+        "../../packages/vs/vs/*"
+      ],
+      "@injected/*": [
+        "../../packages/injected/lib/*"
+      ]
+    },
+    "types": [
+      "chrome"
+    ]
+  },
+  "include": [
+    "src",
+    "../../packages/vs/vs",
+    "../../packages/shared/src",
+    "../../packages/injected/global.d.ts"
+  ],
+}

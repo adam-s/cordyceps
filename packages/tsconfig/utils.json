@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Chrome Extension Utils",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "moduleResolution": "bundler",
+    "types": ["node"]
+  }
+}

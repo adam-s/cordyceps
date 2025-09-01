@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Cordyceps Example Domain - Enhanced Testing Page</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style type="text/css">
+    body {
+      background-color: #f0f0f2;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+      width: 800px;
+      margin: 2em auto;
+      padding: 2em;
+      background-color: #fdfdff;
+      border-radius: 0.5em;
+      box-shadow: 2px 3px 7px 2px rgba(0, 0, 0, 0.02);
+    }
+
+    .controls {
+      margin: 2em 0;
+      padding: 1em;
+      background-color: #f8f9fa;
+      border-radius: 0.3em;
+      border: 1px solid #e9ecef;
+    }
+
+    .iframe-container {
+      margin: 2em 0;
+      padding: 1em;
+      background-color: #f1f3f4;
+      border-radius: 0.3em;
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: 2px solid #dee2e6;
+      border-radius: 0.25em;
+      margin: 0.5em 0;
+    }
+
+    button {
+      background-color: #38488f;
+      color: white;
+      border: none;
+      padding: 0.75em 1.5em;
+      border-radius: 0.25em;
+      cursor: pointer;
+      font-size: 1em;
+      margin: 0.5em 0.5em 0.5em 0;
+    }
+
+    button:hover {
+      background-color: #2d3a7a;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 0.5em;
+      transform: scale(1.2);
+    }
+
+    label {
+      font-weight: 500;
+      margin-right: 1em;
+    }
+
+    a:link,
+    a:visited {
+      color: #38488f;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .shadow-host {
+      margin: 2em 0;
+      padding: 1em;
+      background-color: #e8f4f8;
+      border-radius: 0.3em;
+      border: 2px dashed #17a2b8;
+    }
+
+    .info-box {
+      background-color: #d1ecf1;
+      border: 1px solid #bee5eb;
+      border-radius: 0.25em;
+      padding: 1em;
+      margin: 1em 0;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        margin: 0 auto;
+        width: auto;
+        margin: 1em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Cordyceps Example Domain - Enhanced Testing Page</h1>
+
+    <p>This enhanced domain is for use in Cordyceps testing. It includes various
+      interactive elements
+      to test automation capabilities including iframes, shadow DOM, and form
+      controls.</p>
+
+    <div class="info-box">
+      <strong>🎯 Testing Features:</strong> Checkboxes, Buttons, Nested iframes,
+      Shadow DOM elements
+    </div>
+
+    <!-- Interactive Controls Section -->
+    <div class="controls">
+      <h3>Interactive Controls</h3>
+
+      <label>
+        <input type="checkbox" id="test-checkbox" name="test-feature">
+        Enable test feature
+      </label>
+
+      <label>
+        <input type="checkbox" id="advanced-mode" name="advanced-mode" checked>
+        Advanced mode
+      </label>
+
+      <br><br>
+
+      <button id="action-button" onclick="handleButtonClick()">Perform
+        Action</button>
+      <button id="toggle-button" onclick="toggleCheckbox()">Toggle First
+        Checkbox</button>
+      <button id="log-button" onclick="logStatus()">Log Status</button>
+    </div>
+
+    <!-- Shadow DOM Section -->
+    <div class="shadow-host" id="shadow-host">
+      <h3>Shadow DOM Container</h3>
+      <p>Shadow DOM content will be inserted here via JavaScript.</p>
+    </div>
+
+    <!-- Iframes Section -->
+    <div class="iframe-container">
+      <h3>Embedded Iframes</h3>
+
+      <h4>Iframe 1: Simple Content</h4>
+      <iframe src="/iframe1" title="First embedded iframe"></iframe>
+
+      <h4>Iframe 2: Content with Nested Iframe</h4>
+      <iframe src="/iframe2"
+        title="Second embedded iframe with nested content"></iframe>
+    </div>
+
+    <p><a href="https://www.iana.org/domains/example">More information about
+        example domains...</a></p>
+
+    <div class="info-box">
+      <strong>🔍 For Cordyceps Testing:</strong> Use selectors like
+      <code>#test-checkbox</code>,
+      <code>#action-button</code>, or
+      <code>iframe[title="First embedded iframe"]</code>
+    </div>
+  </div>
+
+  <script>
+    // Create Shadow DOM
+    function createShadowDOM() {
+      const host = document.getElementById('shadow-host');
+      const shadowRoot = host.attachShadow({ mode: 'open' });
+
+      shadowRoot.innerHTML = `
+                <style>
+                    .shadow-content {
+                        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+                        padding: 1.5em;
+                        border-radius: 0.5em;
+                        color: white;
+                        text-align: center;
+                        margin: 1em 0;
+                    }
+                    .shadow-button {
+                        background: rgba(255, 255, 255, 0.2);
+                        border: 2px solid white;
+                        color: white;
+                        padding: 0.5em 1em;
+                        border-radius: 0.25em;
+                        cursor: pointer;
+                        margin: 0.5em;
+                    }
+                    .shadow-button:hover {
+                        background: rgba(255, 255, 255, 0.3);
+                    }
+                </style>
+                <div class="shadow-content">
+                    <h4>🌟 Shadow DOM Element</h4>
+                    <p>This content is inside a shadow DOM and isolated from the main document!</p>
+                    <button class="shadow-button" onclick="alert('Shadow DOM button clicked!')">
+                        Click Me (Shadow)
+                    </button>
+                    <br>
+                    <label style="display: block; margin-top: 1em;">
+                        <input type="checkbox" id="shadow-checkbox"> Shadow Checkbox
+                    </label>
+                </div>
+            `;
+
+      console.log('✅ Shadow DOM created successfully');
+    }
+
+    // Button click handlers
+    function handleButtonClick() {
+      const timestamp = new Date().toLocaleTimeString();
+      console.log(`🎯 Action button clicked at ${timestamp}`);
+    }
+
+    function toggleCheckbox() {
+      const checkbox = document.getElementById('test-checkbox');
+      checkbox.checked = !checkbox.checked;
+      console.log(`🔄 Checkbox toggled to: ${checkbox.checked}`);
+    }
+
+    function logStatus() {
+      const testCheckbox = document.getElementById('test-checkbox').checked;
+      const advancedMode = document.getElementById('advanced-mode').checked;
+
+      const status = {
+        testFeature: testCheckbox,
+        advancedMode: advancedMode,
+        timestamp: new Date().toISOString()
+      };
+
+      console.log('📊 Current Status:', status);
+
+      // Also log to the page
+      const infoBox = document.querySelector('.info-box');
+      infoBox.innerHTML = `
+                <strong>📊 Last Status Check:</strong><br>
+                Test Feature: ${testCheckbox ? '✅' : '❌'}<br>
+                Advanced Mode: ${advancedMode ? '✅' : '❌'}<br>
+                Time: ${status.timestamp}
+            `;
+    }
+
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log('🚀 Cordyceps Example Page loaded');
+      createShadowDOM();
+
+      // Add some event listeners
+      document.getElementById('test-checkbox').addEventListener('change', function (e) {
+        console.log(`🎯 Test checkbox changed to: ${e.target.checked}`);
+      });
+
+      document.getElementById('advanced-mode').addEventListener('change', function (e) {
+        console.log(`🎯 Advanced mode changed to: ${e.target.checked}`);
+      });
+    });
+  </script>
+</body>
+
+</html>

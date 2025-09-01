@@ -1,0 +1,39 @@
+{
+  "name": "chrome-extension",
+  "version": "0.0.1",
+  "description": "chrome extension",
+  "scripts": {
+    "clean": "rimraf ../../dist",
+    "build": "vite build",
+    "build:firefox": "cross-env __FIREFOX__=true vite build",
+    "build:watch": "cross-env __DEV__=true vite build -w --mode development",
+    "build:firefox:watch": "cross-env __DEV__=true __FIREFOX__=true vite build -w --mode development",
+    "dev": "pnpm build:watch",
+    "dev:firefox": "pnpm build:firefox:watch",
+    "lint": "eslint ./ --ext .ts,.js,.tsx,.jsx",
+    "lint:fix": "pnpm lint --fix",
+    "prettier": "prettier . --write --ignore-path ../.prettierignore",
+    "type-check": "tsc --noEmit",
+    "test": "vitest --config vite.config.mts",
+    "test:ui": "vitest --ui --config vite.config.mts",
+    "test:run": "vitest run --config vite.config.mts"
+  },
+  "type": "module",
+  "dependencies": {
+    "@crx-deep-research/shared": "workspace:*",
+    "dexie": "^4.0.9",
+    "jsdom": "^25.0.1",
+    "webextension-polyfill": "^0.12.0"
+  },
+  "devDependencies": {
+    "@laynezh/vite-plugin-lib-assets": "^1.1.0",
+    "@crx-deep-research/dev-utils": "workspace:*",
+    "@crx-deep-research/hmr": "workspace:*",
+    "@crx-deep-research/tsconfig": "workspace:*",
+    "@types/ws": "^8.5.10",
+    "fake-indexeddb": "^6.0.0",
+    "magic-string": "^0.30.10",
+    "ts-loader": "^9.5.1",
+    "vitest": "^2.0.0"
+  }
+}

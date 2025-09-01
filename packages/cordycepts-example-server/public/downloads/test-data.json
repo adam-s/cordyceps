@@ -1,0 +1,25 @@
+{
+  "message": "Chrome extension download test",
+  "timestamp": "2025-08-13T12:00:00.000Z",
+  "downloadId": "static-file",
+  "features": [
+    "json parsing",
+    "object serialization",
+    "mime type handling",
+    "server-side file serving"
+  ],
+  "metadata": {
+    "source": "Cordyceps test suite",
+    "fileType": "application/json",
+    "testingPlatform": "Chrome extension"
+  },
+  "testData": {
+    "numbers": [1, 2, 3, 4, 5],
+    "booleans": [true, false],
+    "nested": {
+      "level1": {
+        "level2": "deep nesting test"
+      }
+    }
+  }
+}

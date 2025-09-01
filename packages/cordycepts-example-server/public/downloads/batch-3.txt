@@ -1,0 +1,5 @@
+Third file in batch
+Generated: 2025-08-13T12:00:00.000Z
+Batch position: 3/5
+
+This is the third file in a sequential batch download test.

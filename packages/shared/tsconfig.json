@@ -1,0 +1,49 @@
+{
+  "extends": "@crx-deep-research/tsconfig/utils",
+  "compilerOptions": {
+    "outDir": "dist",
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "target": "ESNext",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "forceConsistentCasingInFileNames": false,
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "allowJs": true,
+    "paths": {
+      "@shared/*": [
+        "src/*"
+      ],
+      "vs/*": [
+        "../vs/vs/*"
+      ],
+      "@injected/*": [
+        "../injected/lib/*"
+      ],
+    },
+    "types": [
+      "chrome"
+    ],
+  },
+  "include": [
+    "index.ts",
+    "src/**/*",
+    "../injected/global.d.ts",
+    "../../pages/side-panel/src/services/utils/TabService.ts",
+    "../../pages/side-panel/src/services/utils/ExtensionClientLifecycle.ts"
+  ],
+  "exclude": [
+    "../vs/**/*",
+    "**/*.test.ts",
+    "**/*.spec.ts",
+    "**/test/**",
+    "**/tests/**"
+  ]
+}
