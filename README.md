@@ -235,24 +235,3 @@ await nestedRadio2.check();          // Selects aria-ref=f3e8 radio in nested if
 console.log('ARIA ref frame-piercing test completed successfully!');
 console.log('Cordyceps accessed elements across multiple iframe levels using aria-ref selectors');
 ```
-
-### Revolutionary Frame-Piercing Technology
-
-**What makes this groundbreaking**: Traditional automation tools require complex frame switching and often fail with nested iframes or shadow DOM. Cordyceps' AI snapshot technology **automatically pierces through all barriers**:
-
-- **Unified Element Access**: No frame switching - access elements anywhere with a single locator
-- **Nested Iframe Support**: Works through unlimited levels of iframe nesting (ref=f1e, f2e, f3e...)
-- **Shadow DOM Penetration**: Seamlessly interacts with shadow DOM elements
-- **Cross-Origin Resilience**: Handles cross-origin frames with intelligent fallback strategies
-- **Automatic Frame Discovery**: AI snapshot automatically maps all accessible frames and contexts
-
-The system includes advanced iframe handling through `snapshotFrameForAI()`, which:
-
-- **Recursively processes nested frames** with retry logic and frame reference prefixes (f1e, f2e, f3e...)
-- **Intelligently pierces frame boundaries** that traditionally block automation tools
-- **Handles cross-origin and navigation timing issues** gracefully with smart fallback strategies
-- **Provides unified element access** across all frames without manual frame switching
-
-**This is a breakthrough in web automation** - where other tools fail with complex nested content, Cordyceps succeeds effortlessly.
-
-This enables AI agents to understand page structure semantically rather than visually, leading to more reliable and efficient web automation.
