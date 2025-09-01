@@ -4,11 +4,17 @@
 
 ### Cordyceps in Action
 
-![Cordyceps Demo](https://github.com/adam-s/cordyceps/raw/refs/heads/main/docs/media/cordyceps.mov)
+<video width="100%" controls>
+  <source src="https://github.com/adam-s/cordyceps/raw/refs/heads/main/docs/media/cordyceps.mov" type="video/quicktime">
+  Your browser does not support the video tag.
+</video>
 
 ### Browser Use & Stagehand Demo
 
-![Browser Use & Stagehand Demo](https://github.com/adam-s/cordyceps/raw/refs/heads/main/docs/media/browser-use_stagehand.mov)
+<video width="100%" controls>
+  <source src="https://github.com/adam-s/cordyceps/raw/refs/heads/main/docs/media/browser-use_stagehand.mov" type="video/quicktime">
+  Your browser does not support the video tag.
+</video>
 
 ## Installation
 
