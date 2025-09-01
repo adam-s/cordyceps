@@ -10,15 +10,15 @@ This repository showcases advanced automation and DOM interaction capabilities r
 
 Cordyceps is a port of Playwright's and Puppeteer's client APIs that runs inside a Chrome extension using Chrome extension APIs and standard DOM APIs—no Chrome DevTools Protocol required.
 
-### Browser‑Use
+### CRX-Browser‑Use
 
-Browser‑Use is a TypeScript port of [Browser Use](https://github.com/browser-use/browser-use) adapted to run entirely within a Chrome extension, enabling in‑page automation and DOM interactions using extension and DOM APIs.
+CRX-Browser‑Use is a TypeScript port of [Browser Use](https://github.com/browser-use/browser-use) adapted to run entirely within a Chrome extension, enabling in‑page automation and DOM interactions using extension and DOM APIs.
 
 *TypeScript port: [browser-use-ts](https://github.com/Vadavision/browser-use-ts)*
 
-### Stagehand
+### CRX-Stagehand
 
-Stagehand is a port of [Stagehand](https://stagehand.dev) designed to run in a Chrome extension environment for in‑browser reasoning, extraction, and automation workflows.
+CRX-Stagehand is a port of [Stagehand](https://stagehand.dev) designed to run in a Chrome extension environment for in‑browser reasoning, extraction, and automation workflows.
 
 *Documentation: [docs.stagehand.dev](https://docs.stagehand.dev)*
 
