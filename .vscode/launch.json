@@ -1,0 +1,73 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${file}",
+      "outFiles": [
+        "${workspaceFolder}/**/*.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Server",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "console": "integratedTerminal", // optional: use "externalTerminal" if you prefer
+      "internalConsoleOptions": "neverOpen",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "restart": true,
+      "outputCapture": "std",
+      "envFile": "${workspaceFolder}/packages/server/.env", // Optional: Load environment variables
+      "protocol": "inspector",
+      "cwd": "${workspaceFolder}/packages/server", // Current working directory
+      "port": 9229 // Optional: Specify debugging port if needed
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Debug Tests (packages/injected)",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": [
+        "vitest",
+        "run",
+        "--inspect-brk",
+        "--threads",
+        "false"
+      ],
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/packages/injected",
+      "autoAttachChildProcesses": true,
+      "skipFiles": [
+        "<node_internals>/**",
+        "${workspaceFolder}/node_modules/**"
+      ],
+    },
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach to Debugger",
+      "port": 9229,
+      "restart": true,
+      "sourceMaps": true,
+      "skipFiles": [
+        "<node_internals>/**",
+        "$node_modules/**/*.js",
+      ],
+    }
+  ]
+}

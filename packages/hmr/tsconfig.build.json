@@ -1,0 +1,16 @@
+{
+  "extends": "@crx-deep-research/tsconfig/utils",
+  "compilerOptions": {
+    "outDir": "dist",
+    "types": [
+      "chrome"
+    ]
+  },
+  "exclude": [
+    "lib/injections/**/*"
+  ],
+  "include": [
+    "lib",
+    "index.ts"
+  ]
+}

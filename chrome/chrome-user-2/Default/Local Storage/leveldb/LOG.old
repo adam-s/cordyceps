@@ -1,0 +1,8 @@
+2025/08/04-13:25:10.618 3fb736 Creating DB /Users/adamsohn/Projects/crx-deep-research/chrome/chrome-user-2/Default/Local Storage/leveldb since it was missing.
+2025/08/04-13:25:10.622 3fb736 Reusing MANIFEST /Users/adamsohn/Projects/crx-deep-research/chrome/chrome-user-2/Default/Local Storage/leveldb/MANIFEST-000001
+2025/08/04-13:25:44.094 3fb738 Level-0 table #5: started
+2025/08/04-13:25:44.101 3fb738 Level-0 table #5: 176516 bytes OK
+2025/08/04-13:25:44.105 3fb738 Delete type=0 #3
+2025/08/04-13:26:10.628 3fb738 Level-0 table #7: started
+2025/08/04-13:26:10.642 3fb738 Level-0 table #7: 662941 bytes OK
+2025/08/04-13:26:10.649 3fb738 Delete type=0 #4

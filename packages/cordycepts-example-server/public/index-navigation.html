@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Test Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .navigation-section {
+      margin: 30px 0;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .navigation-section h2 {
+      color: #ffd700;
+      margin-bottom: 15px;
+      font-size: 1.5em;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    .nav-button {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(238, 90, 36, 0.3);
+    }
+
+    .nav-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(238, 90, 36, 0.4);
+    }
+
+    .nav-button.secondary {
+      background: linear-gradient(45deg, #4834d4, #686de0);
+      box-shadow: 0 4px 15px rgba(72, 52, 212, 0.3);
+    }
+
+    .nav-button.secondary:hover {
+      box-shadow: 0 6px 20px rgba(72, 52, 212, 0.4);
+    }
+
+    .nav-link {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+
+    .info-box {
+      background: rgba(0, 255, 0, 0.1);
+      border: 1px solid rgba(0, 255, 0, 0.3);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .current-url {
+      font-family: monospace;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      word-break: break-all;
+    }
+
+    ul {
+      line-height: 1.8;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🧭 Navigation Test Page</h1>
+
+    <div class="info-box">
+      <p><strong>Current URL:</strong></p>
+      <div class="current-url" id="current-url">Loading...</div>
+    </div>
+
+    <div class="navigation-section">
+      <h2>🚀 Navigation Actions</h2>
+      <div class="nav-buttons">
+        <button class="nav-button" onclick="navigateToMain()">Go to Main
+          Page</button>
+        <button class="nav-button" onclick="navigateToPage2()">Go to Page
+          2</button>
+        <button class="nav-button secondary" onclick="reloadPage()">Reload
+          Page</button>
+        <button class="nav-button secondary" onclick="goBack()">Go Back</button>
+        <button class="nav-button secondary" onclick="goForward()">Go
+          Forward</button>
+      </div>
+    </div>
+
+    <div class="navigation-section">
+      <h2>🔗 Direct Links</h2>
+      <ul>
+        <li><a href="/" class="nav-link">Main Page (index.html)</a></li>
+        <li><a href="/iframe1" class="nav-link">Iframe Test Page 1</a></li>
+        <li><a href="/iframe2" class="nav-link">Iframe Test Page 2</a></li>
+        <li><a href="/nested-iframe" class="nav-link">Nested Iframe Page</a>
+        </li>
+        <li><a href="#section1" class="nav-link">Section 1 (same page)</a></li>
+        <li><a href="#section2" class="nav-link">Section 2 (same page)</a></li>
+      </ul>
+    </div>
+
+    <div class="navigation-section" id="section1">
+      <h2>📍 Section 1</h2>
+      <p>This is section 1 of the navigation test page. You can use the
+        browser's back/forward buttons or the JavaScript methods to navigate.
+      </p>
+      <div class="nav-buttons">
+        <button class="nav-button" onclick="scrollToSection2()">Scroll to
+          Section 2</button>
+      </div>
+    </div>
+
+    <div class="navigation-section" id="section2">
+      <h2>📍 Section 2</h2>
+      <p>This is section 2 of the navigation test page. Perfect for testing
+        scrolling and hash navigation.</p>
+      <div class="nav-buttons">
+        <button class="nav-button" onclick="scrollToTop()">Scroll to
+          Top</button>
+      </div>
+    </div>
+
+    <div class="navigation-section">
+      <h2>🎯 Test Scenarios</h2>
+      <p>This page is designed to test various navigation scenarios:</p>
+      <ul>
+        <li>Page-to-page navigation using <code>goto()</code></li>
+        <li>Browser back/forward using <code>goBack()</code> and
+          <code>goForward()</code></li>
+        <li>Page reload using <code>reload()</code></li>
+        <li>Hash-based navigation within the same page</li>
+        <li>Link clicking and form navigation</li>
+        <li>History state management</li>
+      </ul>
+    </div>
+
+    <div class="navigation-section">
+      <h2>📊 Navigation History</h2>
+      <div id="navigation-log">
+        <p>Navigation events will be logged here...</p>
+      </div>
+      <div class="nav-buttons">
+        <button class="nav-button secondary" onclick="clearLog()">Clear
+          Log</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Update current URL
+    function updateCurrentUrl() {
+      document.getElementById('current-url').textContent = window.location.href;
+    }
+
+    // Log navigation events
+    function logNavigation(message) {
+      const log = document.getElementById('navigation-log');
+      const timestamp = new Date().toLocaleTimeString();
+      log.innerHTML += `<p><strong>[${timestamp}]</strong> ${message}</p>`;
+      log.scrollTop = log.scrollHeight;
+    }
+
+    // Navigation functions
+    function navigateToMain() {
+      logNavigation('Navigating to main page...');
+      window.location.href = '/';
+    }
+
+    function navigateToPage2() {
+      logNavigation('Navigating to iframe1 page...');
+      window.location.href = '/iframe1';
+    }
+
+    function reloadPage() {
+      logNavigation('Reloading page...');
+      window.location.reload();
+    }
+
+    function goBack() {
+      logNavigation('Going back in history...');
+      window.history.back();
+    }
+
+    function goForward() {
+      logNavigation('Going forward in history...');
+      window.history.forward();
+    }
+
+    function scrollToSection2() {
+      logNavigation('Scrolling to Section 2...');
+      document.getElementById('section2').scrollIntoView({ behavior: 'smooth' });
+      window.location.hash = 'section2';
+    }
+
+    function scrollToTop() {
+      logNavigation('Scrolling to top...');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.location.hash = '';
+    }
+
+    function clearLog() {
+      document.getElementById('navigation-log').innerHTML = '<p>Log cleared...</p>';
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function () {
+      updateCurrentUrl();
+      logNavigation('Page loaded and ready for navigation testing');
+    });
+
+    // Listen for URL changes
+    window.addEventListener('popstate', function (event) {
+      updateCurrentUrl();
+      logNavigation('Browser back/forward button used');
+    });
+
+    window.addEventListener('hashchange', function (event) {
+      updateCurrentUrl();
+      logNavigation(`Hash changed: ${window.location.hash}`);
+    });
+
+    // Listen for page visibility changes
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) {
+        updateCurrentUrl();
+        logNavigation('Page became visible again');
+      }
+    });
+  </script>
+</body>
+
+</html>

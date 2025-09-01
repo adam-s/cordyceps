@@ -1,0 +1,11 @@
+2025/08/08-21:27:02.668 2d10b3 Reusing MANIFEST /Users/adamsohn/Projects/crx-deep-research/chrome/chrome-user-2/Default/Local Storage/leveldb/MANIFEST-000001
+2025/08/08-21:27:02.669 2d10b3 Recovering log #6
+2025/08/08-21:27:02.672 2d10b3 Level-0 table #9: started
+2025/08/08-21:27:02.679 2d10b3 Level-0 table #9: 814061 bytes OK
+2025/08/08-21:27:02.682 2d10b3 Delete type=0 #6
+2025/08/08-21:28:30.215 2d10b5 Level-0 table #12: started
+2025/08/08-21:28:30.218 2d10b5 Level-0 table #12: 127110 bytes OK
+2025/08/08-21:28:30.222 2d10b5 Delete type=0 #10
+2025/08/08-21:29:09.743 2d10b5 Level-0 table #14: started
+2025/08/08-21:29:09.747 2d10b5 Level-0 table #14: 66087 bytes OK
+2025/08/08-21:29:09.751 2d10b5 Delete type=0 #11

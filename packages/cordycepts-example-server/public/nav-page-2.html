@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Test Page 2</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #ff6b6b 0%, #feca57 100%);
+      color: white;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    .nav-button {
+      background: linear-gradient(45deg, #4834d4, #686de0);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px;
+      box-shadow: 0 4px 15px rgba(72, 52, 212, 0.3);
+    }
+
+    .nav-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(72, 52, 212, 0.4);
+    }
+
+    .status {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-family: monospace;
+    }
+
+    .spa-actions {
+      margin: 20px 0;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🧭 Navigation Test Page 2</h1>
+
+    <div class="status" id="page-status">
+      Page: nav-page-2.html<br>
+      URL: <span id="current-url">Loading...</span><br>
+      History Length: <span id="history-length">Unknown</span>
+    </div>
+
+    <div class="navigation-actions">
+      <h2>🚀 Cross-Document Navigation</h2>
+      <a href="/nav-page-1" class="nav-button" id="nav-to-page-1">Go to Page
+        1</a>
+      <a href="/nav-page-3" class="nav-button" id="nav-to-page-3">Go to Page
+        3</a>
+      <a href="/" class="nav-button" id="nav-to-home">Back to Home</a>
+    </div>
+
+    <div class="spa-actions">
+      <h2>🔄 SPA-Style Navigation (pushState)</h2>
+      <button class="nav-button" onclick="navigateSPA('/virtual-page-a')"
+        id="spa-nav-a">Virtual Page A</button>
+      <button class="nav-button" onclick="navigateSPA('/virtual-page-b')"
+        id="spa-nav-b">Virtual Page B</button>
+      <button class="nav-button" onclick="navigateSPA('/virtual-page-c')"
+        id="spa-nav-c">Virtual Page C</button>
+    </div>
+
+    <div class="history-controls">
+      <h2>⏳ History Navigation</h2>
+      <button class="nav-button" onclick="goBack()" id="history-back">Browser
+        Back</button>
+      <button class="nav-button" onclick="goForward()"
+        id="history-forward">Browser Forward</button>
+    </div>
+
+    <div
+      style="margin-top: 100px; padding: 20px; background: rgba(0, 255, 0, 0.1); border-radius: 8px;">
+      <h3>🧪 Test Markers</h3>
+      <p>This page is designed for automated navigation testing with SPA
+        functionality.</p>
+      <ul>
+        <li>Page identifier: <code id="page-identifier">nav-page-2</code></li>
+        <li>Navigation ready: <code id="nav-ready">false</code></li>
+        <li>SPA state: <code id="spa-state">initial</code></li>
+        <li>Navigation count: <code id="nav-count">0</code></li>
+      </ul>
+    </div>
+
+    <div id="virtual-content"
+      style="margin-top: 20px; padding: 20px; background: rgba(255, 255, 255, 0.1); border-radius: 8px;">
+      <h3>📱 Virtual Content Area</h3>
+      <p id="virtual-text">No virtual page loaded</p>
+    </div>
+  </div>
+
+  <script>
+    let navigationCount = 0;
+
+    function updateStatus() {
+      document.getElementById('current-url').textContent = window.location.href;
+      document.getElementById('history-length').textContent = history.length;
+      document.getElementById('nav-count').textContent = navigationCount;
+    }
+
+    function navigateSPA(virtualPath) {
+      navigationCount++;
+      console.log(`🔄 SPA Navigation to: ${virtualPath}`);
+
+      // Update URL using pushState
+      const newUrl = window.location.origin + virtualPath;
+      history.pushState({ virtualPath: virtualPath, count: navigationCount }, '', newUrl);
+
+      // Update virtual content
+      updateVirtualContent(virtualPath);
+      updateStatus();
+
+      document.getElementById('spa-state').textContent = virtualPath;
+    }
+
+    function updateVirtualContent(virtualPath) {
+      const content = {
+        '/virtual-page-a': 'This is Virtual Page A content loaded via SPA navigation.',
+        '/virtual-page-b': 'This is Virtual Page B content loaded via SPA navigation.',
+        '/virtual-page-c': 'This is Virtual Page C content loaded via SPA navigation.'
+      };
+
+      const text = content[virtualPath] || 'Unknown virtual page';
+      document.getElementById('virtual-text').textContent = text;
+    }
+
+    function goBack() {
+      console.log('🔙 Calling history.back()');
+      history.back();
+    }
+
+    function goForward() {
+      console.log('🔜 Calling history.forward()');
+      history.forward();
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function () {
+      updateStatus();
+      document.getElementById('nav-ready').textContent = 'true';
+      console.log('🚀 Navigation Test Page 2 loaded and ready');
+    });
+
+    // Listen for navigation events
+    window.addEventListener('popstate', function (event) {
+      console.log('📍 Popstate event:', event);
+      if (event.state && event.state.virtualPath) {
+        updateVirtualContent(event.state.virtualPath);
+        document.getElementById('spa-state').textContent = event.state.virtualPath;
+      } else {
+        document.getElementById('virtual-text').textContent = 'No virtual page loaded';
+        document.getElementById('spa-state').textContent = 'initial';
+      }
+      updateStatus();
+    });
+
+    // Update status periodically
+    setInterval(updateStatus, 1000);
+  </script>
+</body>
+
+</html>

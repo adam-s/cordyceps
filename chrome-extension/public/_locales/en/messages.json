@@ -1,0 +1,10 @@
+{
+  "extensionDescription": {
+    "description": "Extension description",
+    "message": "Chrome Extension for Deep Research"
+  },
+  "extensionName": {
+    "description": "Extension name",
+    "message": "Chrome Extension for Deep Research"
+  }
+}

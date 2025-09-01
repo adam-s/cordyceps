@@ -1,0 +1,18 @@
+Special characters test: àáâãäåæçèéêë
+Unicode support: 🚀 📥 ✅ 🎯
+Generated: 2025-08-13T12:00:00.000Z
+
+This file tests special characters and Unicode support in filenames and content.
+
+Characters tested:
+- Accented letters: àáâãäåæçèéêë
+- Emojis: 🚀 📥 ✅ 🎯 🌟 💾 📄 🔗
+- Special symbols: ™ © ® € £ ¥ § ¶ • ‰ ‡ † ‹ › « » 
+- Diacritical marks: ñ ç ü ö ä ß
+- Extended Unicode: Ω Φ Ψ α β γ δ ε
+
+Testing ensures proper:
+- Filename encoding (UTF-8)
+- Content rendering
+- Download compatibility
+- Cross-platform support

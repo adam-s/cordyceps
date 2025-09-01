@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Chrome Extension Utils",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "NodeNext",
+    "target": "ESNext",
+    "lib": ["ESNext", "DOM", "DOM.Iterable", "WebWorker.ImportScripts"],
+    "noEmit": false,
+    "declaration": true,
+    "types": ["node"]
+  }
+}

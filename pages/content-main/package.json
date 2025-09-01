@@ -1,0 +1,27 @@
+{
+  "name": "@crx-deep-research/content-main",
+  "version": "0.0.1",
+  "description": "Chrome Extension for Deep Research - Content Main",
+  "private": true,
+  "sideEffects": true,
+  "files": [
+    "dist/**"
+  ],
+  "scripts": {
+    "clean": "rimraf ./dist",
+    "build": "pnpm run clean && tsc --noEmit && vite build",
+    "build:watch": "cross-env __DEV__=true vite build -w --mode development",
+    "dev": "pnpm build:watch",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "pnpm lint --fix",
+    "prettier": "prettier . --write --ignore-path ../../.prettierignore",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@crx-deep-research/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@crx-deep-research/tsconfig": "workspace:*",
+    "@crx-deep-research/hmr": "workspace:*"
+  }
+}

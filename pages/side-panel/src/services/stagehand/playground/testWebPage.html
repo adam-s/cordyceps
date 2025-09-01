@@ -1,0 +1,1140 @@
+<html>
+
+<head>
+  <title>Cordyceps Example Domain - Enhanced Testing Page</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style type="text/css">
+    body {
+      background-color: #f0f0f2;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .container {
+      width: 800px;
+      margin: 2em auto;
+      padding: 2em;
+      background-color: #fdfdff;
+      border-radius: 0.5em;
+      box-shadow: 2px 3px 7px 2px rgba(0, 0, 0, 0.02);
+    }
+
+    .controls {
+      margin: 2em 0;
+      padding: 1em;
+      background-color: #f8f9fa;
+      border-radius: 0.3em;
+      border: 1px solid #e9ecef;
+    }
+
+    .iframe-container {
+      margin: 2em 0;
+      padding: 1em;
+      background-color: #f1f3f4;
+      border-radius: 0.3em;
+    }
+
+    iframe {
+      width: 100%;
+      height: 200px;
+      border: 2px solid #dee2e6;
+      border-radius: 0.25em;
+      margin: 0.5em 0;
+    }
+
+    button {
+      background-color: #38488f;
+      color: white;
+      border: none;
+      padding: 0.75em 1.5em;
+      border-radius: 0.25em;
+      cursor: pointer;
+      font-size: 1em;
+      margin: 0.5em 0.5em 0.5em 0;
+    }
+
+    button:hover {
+      background-color: #2d3a7a;
+    }
+
+    input[type="checkbox"] {
+      margin-right: 0.5em;
+      transform: scale(1.2);
+    }
+
+    label {
+      font-weight: 500;
+      margin-right: 1em;
+    }
+
+    a:link,
+    a:visited {
+      color: #38488f;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .shadow-host {
+      margin: 2em 0;
+      padding: 1em;
+      background-color: #e8f4f8;
+      border-radius: 0.3em;
+      border: 2px dashed #17a2b8;
+    }
+
+    .info-box {
+      background-color: #d1ecf1;
+      border: 1px solid #bee5eb;
+      border-radius: 0.25em;
+      padding: 1em;
+      margin: 1em 0;
+    }
+
+    /* Drag and Drop Styles */
+    .drag-drop-container {
+      margin: 2em 0;
+      padding: 1em;
+      background-color: #f8f9fa;
+      border-radius: 0.3em;
+      border: 1px solid #e9ecef;
+    }
+
+    .draggable-item {
+      display: inline-block;
+      padding: 0.75em 1em;
+      margin: 0.5em;
+      background-color: #007bff;
+      color: white;
+      border-radius: 0.25em;
+      cursor: move;
+      user-select: none;
+      transition: transform 0.2s;
+    }
+
+    .draggable-item:hover {
+      transform: scale(1.05);
+      background-color: #0056b3;
+    }
+
+    .draggable-item.dragging {
+      opacity: 0.5;
+      transform: rotate(5deg);
+    }
+
+    .drop-zone {
+      min-height: 100px;
+      border: 2px dashed #6c757d;
+      border-radius: 0.25em;
+      padding: 1em;
+      margin: 0.5em;
+      background-color: #f8f9fa;
+      text-align: center;
+      color: #6c757d;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .drop-zone.drag-over {
+      border-color: #28a745;
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    .drop-zone.has-items {
+      background-color: #e9ecef;
+      border-color: #adb5bd;
+    }
+
+    .sortable-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5em;
+      padding: 1em;
+      border: 1px solid #dee2e6;
+      border-radius: 0.25em;
+      background-color: #ffffff;
+      min-height: 60px;
+    }
+
+    .sortable-item {
+      padding: 0.5em 1em;
+      background-color: #6f42c1;
+      color: white;
+      border-radius: 0.25em;
+      cursor: move;
+      user-select: none;
+      transition: transform 0.2s;
+    }
+
+    .sortable-item:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        margin: 0 auto;
+        width: auto;
+        margin: 1em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Cordyceps Example Domain - Enhanced Testing Page</h1>
+
+    <p>This enhanced domain is for use in Cordyceps testing. It includes various
+      interactive elements
+      to test automation capabilities including iframes, shadow DOM, and form
+      controls.</p>
+
+    <div class="info-box">
+      <strong>Test page note:</strong> This page is used to test
+      <strong>@packages/playwright-testing</strong>. You can see the test
+      examples in <strong>tests/locator</strong> folder.
+    </div>
+
+    <!-- Drag and Drop Testing Section -->
+    <section>
+      <h2>Drag and Drop Testing</h2>
+
+      <div class="drag-drop-container">
+        <h3>Basic Drag and Drop</h3>
+        <div style="display: flex; gap: 2em; align-items: flex-start;">
+          <div>
+            <h4>Draggable Items</h4>
+            <div id="drag-source">
+              <div class="draggable-item" id="item1" data-testid="drag-item-1"
+                draggable="true">
+                Item 1</div>
+              <div class="draggable-item" id="item2" data-testid="drag-item-2"
+                draggable="true">
+                Item 2</div>
+              <div class="draggable-item" id="item3" data-testid="drag-item-3"
+                draggable="true">
+                Item 3</div>
+            </div>
+          </div>
+
+          <div style="flex: 1;">
+            <h4>Drop Zones</h4>
+            <div class="drop-zone" id="dropzone1" data-testid="drop-zone-1">
+              Drop items here (Zone 1)
+            </div>
+            <div class="drop-zone" id="dropzone2" data-testid="drop-zone-2">
+              Drop items here (Zone 2)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="drag-drop-container">
+        <h3>Sortable List</h3>
+        <div class="sortable-container" id="sortable-list"
+          data-testid="sortable-container">
+          <div class="sortable-item" data-testid="sort-item-a" draggable="true">
+            Alpha</div>
+          <div class="sortable-item" data-testid="sort-item-b" draggable="true">
+            Beta</div>
+          <div class="sortable-item" data-testid="sort-item-c" draggable="true">
+            Gamma</div>
+          <div class="sortable-item" data-testid="sort-item-d" draggable="true">
+            Delta</div>
+        </div>
+      </div>
+
+      <div class="drag-drop-container">
+        <h3>Drag Targets</h3>
+        <div
+          style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1em;">
+          <div class="drop-zone" id="target-a" data-testid="target-a">Target A
+          </div>
+          <div class="drop-zone" id="target-b" data-testid="target-b">Target B
+          </div>
+          <div class="drop-zone" id="target-c" data-testid="target-c">Target C
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Controls Section -->
+    <div class="controls">
+      <h3>Interactive Controls</h3>
+
+      <label>
+        <input type="checkbox" id="test-checkbox" name="test-feature">
+        Enable test feature
+      </label>
+
+      <label>
+        <input type="checkbox" id="advanced-mode" name="advanced-mode"
+          checked="">
+        Advanced mode
+      </label>
+
+      <br><br>
+
+      <button id="action-button" onclick="handleButtonClick()"
+        type="button">Perform
+        Action</button>
+      <button id="toggle-button" onclick="toggleCheckbox()">Toggle First
+        Checkbox</button>
+      <button id="log-button" onclick="logStatus()">Log Status</button>
+      <button id="disabled-button" disabled="">Disabled Action</button>
+    </div>
+
+    <!-- Comprehensive Form Section -->
+    <div class="controls">
+      <h3>🎯 Form Elements Testing</h3>
+      <form id="test-form" onsubmit="handleFormSubmit(event)">
+
+        <!-- Text Inputs -->
+        <div style="margin: 1em 0;">
+          <h4>Text Inputs</h4>
+          <label for="text-input">Text Input:</label><br>
+          <input type="text" id="text-input" name="text-input"
+            placeholder="Enter text..."
+            style="width: 200px; padding: 0.5em; margin: 0.25em 0;">
+
+          <br><label for="email-input">Email Input:</label><br>
+          <input type="email" id="email-input" name="email-input"
+            placeholder="user@example.com"
+            style="width: 200px; padding: 0.5em; margin: 0.25em 0;">
+
+          <br><label for="password-input">Password Input:</label><br>
+          <input type="password" id="password-input" name="password-input"
+            placeholder="Password"
+            style="width: 200px; padding: 0.5em; margin: 0.25em 0;">
+
+          <br><label for="search-input">Search Input:</label><br>
+          <input type="search" id="search-input" name="search-input"
+            placeholder="Search..."
+            style="width: 200px; padding: 0.5em; margin: 0.25em 0;">
+        </div>
+
+        <!-- Number and Range Inputs -->
+        <div style="margin: 1em 0;">
+          <h4>Number and Range Inputs</h4>
+          <label for="number-input">Number Input:</label><br>
+          <input type="number" id="number-input" name="number-input" min="0"
+            max="100" value="42"
+            style="width: 200px; padding: 0.5em; margin: 0.25em 0;">
+
+          <br><label for="range-input">Range Input: <span
+              id="range-value">50</span></label><br>
+          <input type="range" id="range-input" name="range-input" min="0"
+            max="100" value="50" style="width: 200px; margin: 0.25em 0;"
+            oninput="updateRangeValue(this.value)">
+        </div>
+
+        <!-- Date and Time Inputs -->
+        <div style="margin: 1em 0;">
+          <h4>Date and Time Inputs</h4>
+          <label for="date-input">Date Input:</label><br>
+          <input type="date" id="date-input" name="date-input"
+            style="padding: 0.5em; margin: 0.25em 0;">
+
+          <br><label for="time-input">Time Input:</label><br>
+          <input type="time" id="time-input" name="time-input"
+            style="padding: 0.5em; margin: 0.25em 0;">
+
+          <br><label for="datetime-input">DateTime-Local Input:</label><br>
+          <input type="datetime-local" id="datetime-input" name="datetime-input"
+            style="padding: 0.5em; margin: 0.25em 0;">
+        </div>
+
+        <!-- Checkboxes and Radio Buttons -->
+        <div style="margin: 1em 0;">
+          <h4>Checkboxes and Radio Buttons</h4>
+
+          <fieldset
+            style="border: 1px solid #ccc; padding: 0.5em; margin: 0.5em 0;">
+            <legend>Checkbox Options</legend>
+            <label><input type="checkbox" id="checkbox-1" name="features"
+                value="feature1"> Feature 1</label><br>
+            <label><input type="checkbox" id="checkbox-2" name="features"
+                value="feature2" checked=""> Feature 2 (checked)</label><br>
+            <label><input type="checkbox" id="checkbox-3" name="features"
+                value="feature3"> Feature 3</label>
+          </fieldset>
+
+          <fieldset
+            style="border: 1px solid #ccc; padding: 0.5em; margin: 0.5em 0;">
+            <legend>Radio Button Options</legend>
+            <label><input type="radio" id="radio-1" name="size" value="small">
+              Small</label><br>
+            <label><input type="radio" id="radio-2" name="size" value="medium"
+                checked=""> Medium (selected)</label><br>
+            <label><input type="radio" id="radio-3" name="size" value="large">
+              Large</label>
+          </fieldset>
+        </div>
+
+        <!-- Select Elements -->
+        <div style="margin: 1em 0;">
+          <h4>Select Elements</h4>
+
+          <label for="single-select">Single Select:</label><br>
+          <select id="single-select" name="single-select"
+            style="width: 200px; padding: 0.5em; margin: 0.25em 0;">
+            <option value="">Choose an option...</option>
+            <option value="option1">Option 1</option>
+            <option value="option2" selected="">Option 2 (selected)</option>
+            <option value="option3">Option 3</option>
+            <option value="option4">Option 4</option>
+          </select>
+
+          <br><label for="multiple-select">Multiple Select (Ctrl+click for
+            multiple):</label><br>
+          <select id="multiple-select" name="multiple-select" multiple=""
+            size="4" style="width: 200px; margin: 0.25em 0;">
+            <option value="item1" selected="">Item 1 (selected)</option>
+            <option value="item2">Item 2</option>
+            <option value="item3" selected="">Item 3 (selected)</option>
+            <option value="item4">Item 4</option>
+            <option value="item5">Item 5</option>
+          </select>
+        </div>
+
+        <!-- Textarea -->
+        <div style="margin: 1em 0;">
+          <h4>Textarea</h4>
+          <label for="textarea-input">Message:</label><br>
+          <textarea id="textarea-input" name="textarea-input" rows="4" cols="50"
+            placeholder="Enter your message here..."
+            style="padding: 0.5em; margin: 0.25em 0; resize: vertical;">Default textarea content...</textarea>
+        </div>
+
+        <!-- File Input -->
+        <div style="margin: 1em 0;">
+          <h4>📁 File Input Testing</h4>
+
+          <!-- Single File Input -->
+          <label for="file-input">Single File (Text/JSON/HTML):</label><br>
+          <input type="file" id="file-input" name="file-input"
+            accept=".txt,.json,.html" style="margin: 0.25em 0;">
+
+          <!-- Multiple Files Input -->
+          <br><label for="multiple-files">Multiple Files:</label><br>
+          <input type="file" id="multiple-files" name="multiple-files"
+            multiple="" style="margin: 0.25em 0;">
+
+          <!-- Image Files Only -->
+          <br><label for="image-files">Image Files Only:</label><br>
+          <input type="file" id="image-files" name="image-files" multiple=""
+            accept="image/*" style="margin: 0.25em 0;">
+
+          <!-- Directory Upload -->
+          <br><label for="directory-upload">Directory Upload:</label><br>
+          <input type="file" id="directory-upload" name="directory-upload"
+            webkitdirectory="" directory="" style="margin: 0.25em 0;">
+
+          <!-- Hidden File Input (for programmatic use) -->
+          <input type="file" id="hidden-file-input" name="hidden-file-input"
+            style="display: none;" multiple="">
+
+          <!-- Force Upload (initially disabled) -->
+          <br><label for="disabled-file-input">Disabled File Input:</label><br>
+          <input type="file" id="disabled-file-input" name="disabled-file-input"
+            disabled="" style="margin: 0.25em 0;">
+
+          <!-- Any File Type -->
+          <br><label for="any-file-input">Any File Type:</label><br>
+          <input type="file" id="any-file-input" name="any-file-input"
+            multiple="" style="margin: 0.25em 0;">
+
+          <!-- Required File Input -->
+          <br><label for="required-file-input">Required File Input:</label><br>
+          <input type="file" id="required-file-input" name="required-file-input"
+            required="" style="margin: 0.25em 0;">
+
+          <!-- File Input Display -->
+          <div id="file-status"
+            style="margin: 1em 0; padding: 0.5em; background-color: #f8f9fa; border-radius: 0.25em; display: none;">
+            <strong>File Upload Status:</strong>
+            <div id="file-list"></div>
+          </div>
+
+          <!-- File Test Buttons -->
+          <div style="margin: 1em 0;">
+            <button type="button" onclick="enableDisabledInput()">Enable
+              Disabled Input</button>
+            <button type="button" onclick="showFileStatus()">Show File
+              Status</button>
+            <button type="button" onclick="clearAllFiles()">Clear All
+              Files</button>
+            <button type="button" onclick="triggerHiddenInput()">Trigger Hidden
+              Input</button>
+          </div>
+        </div>
+
+        <!-- Download Testing -->
+        <div style="margin: 1em 0;">
+          <h4>📥 Download Testing</h4>
+          <p>Test Cordyceps download functionality with server-served files.</p>
+
+          <!-- Core Downloads (Server-served files) -->
+          <div
+            style="margin: 1em 0; padding: 0.5em; background-color: #d4edda; border-radius: 0.25em;">
+            <strong>Cordyceps Download Tests:</strong><br>
+            <button type="button" id="download-text-file"
+              onclick="downloadTextFile()">Download Text File</button>
+            <button type="button" id="download-csv-file"
+              onclick="downloadCsvFile()">Download CSV File</button>
+            <button type="button" id="download-image-file"
+              onclick="downloadImageFile()">Download PNG Image</button>
+          </div>
+
+          <!-- Download Status Display -->
+          <div id="download-status"
+            style="margin: 1em 0; padding: 0.5em; background-color: #f8f9fa; border-radius: 0.25em; display: none;">
+            <strong>Download Status:</strong>
+            <div id="download-log"></div>
+          </div>
+
+          <!-- Download Test Buttons -->
+          <div style="margin: 1em 0;">
+            <button type="button" onclick="showDownloadStatus()">Show Download
+              Status</button>
+            <button type="button" onclick="clearDownloadLog()">Clear Download
+              Log</button>
+          </div>
+        </div>
+
+        <!-- Color and URL Inputs -->
+        <div style="margin: 1em 0;">
+          <h4>Color and URL Inputs</h4>
+          <label for="color-input">Color Picker:</label><br>
+          <input type="color" id="color-input" name="color-input"
+            value="#38488f" style="margin: 0.25em 0;">
+
+          <br><label for="url-input">URL Input:</label><br>
+          <input type="url" id="url-input" name="url-input"
+            placeholder="https://example.com"
+            style="width: 200px; padding: 0.5em; margin: 0.25em 0;">
+        </div>
+
+        <!-- Hidden Input -->
+        <input type="hidden" id="hidden-input" name="hidden-input"
+          value="secret-value">
+
+        <!-- Form Buttons -->
+        <div
+          style="margin: 1.5em 0; padding: 1em; background-color: #e9ecef; border-radius: 0.25em;">
+          <button type="submit" style="margin-right: 0.5em;">Submit
+            Form</button>
+          <button type="reset" style="margin-right: 0.5em;">Reset Form</button>
+          <button type="button" onclick="validateForm()"
+            style="margin-right: 0.5em;">Validate Form</button>
+          <button type="button" onclick="fillSampleData()">Fill Sample
+            Data</button>
+        </div>
+
+        <!-- Form Status Display -->
+        <div id="form-status"
+          style="margin: 1em 0; padding: 0.5em; background-color: #d4edda; border-radius: 0.25em; display: none;">
+          Form interaction status will appear here...
+        </div>
+      </form>
+    </div>
+
+    <!-- Shadow DOM Section -->
+    <div class="shadow-host" id="shadow-host">
+      <h3>Shadow DOM Container</h3>
+      <p>Shadow DOM content will be inserted here via JavaScript.</p>
+    </div>
+
+    <!-- Iframes Section -->
+    <div class="iframe-container">
+      <h3>Embedded Iframes</h3>
+
+      <h4>Iframe 1: Simple Content</h4>
+      <iframe src="/iframe1" title="First embedded iframe"></iframe>
+
+      <h4>Iframe 2: Content with Nested Iframe</h4>
+      <iframe src="/iframe2"
+        title="Second embedded iframe with nested content"></iframe>
+    </div>
+
+    <p><a href="https://www.iana.org/domains/example">More information about
+        example domains...</a></p>
+
+    <div class="info-box">
+      <strong>🔍 For Cordyceps Testing:</strong> Use selectors like
+      <code>#test-checkbox</code>,
+      <code>#action-button</code>, or
+      <code>iframe[title="First embedded iframe"]</code>
+    </div>
+  </div>
+
+  <script>
+    // Create Shadow DOM
+    function createShadowDOM() {
+      const host = document.getElementById('shadow-host');
+      const shadowRoot = host.attachShadow({ mode: 'open' });
+
+      shadowRoot.innerHTML = `
+                <style>
+                    .shadow-content {
+                        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+                        padding: 1.5em;
+                        border-radius: 0.5em;
+                        color: white;
+                        text-align: center;
+                        margin: 1em 0;
+                    }
+                    .shadow-button {
+                        background: rgba(255, 255, 255, 0.2);
+                        border: 2px solid white;
+                        color: white;
+                        padding: 0.5em 1em;
+                        border-radius: 0.25em;
+                        cursor: pointer;
+                        margin: 0.5em;
+                    }
+                    .shadow-button:hover {
+                        background: rgba(255, 255, 255, 0.3);
+                    }
+                </style>
+                <div class="shadow-content">
+                    <h4>🌟 Shadow DOM Element</h4>
+                    <p>This content is inside a shadow DOM and isolated from the main document!</p>
+                    <button class="shadow-button" onclick="console.log('Shadow DOM button clicked!')">
+                        Click Me (Shadow)
+                    </button>
+                    <br>
+                    <label style="display: block; margin-top: 1em;">
+                        <input type="checkbox" id="shadow-checkbox"> Shadow Checkbox
+                    </label>
+                </div>
+            `;
+
+      console.log('✅ Shadow DOM created successfully');
+    }
+
+    // Button click handlers
+    function handleButtonClick() {
+      const timestamp = new Date().toLocaleTimeString();
+      console.log(`🎯 Action button clicked at ${timestamp}`);
+    }
+
+    function toggleCheckbox() {
+      const checkbox = document.getElementById('test-checkbox');
+      checkbox.checked = !checkbox.checked;
+      console.log(`🔄 Checkbox toggled to: ${checkbox.checked}`);
+    }
+
+    function logStatus() {
+      const testCheckbox = document.getElementById('test-checkbox').checked;
+      const advancedMode = document.getElementById('advanced-mode').checked;
+
+      const status = {
+        testFeature: testCheckbox,
+        advancedMode: advancedMode,
+        timestamp: new Date().toISOString()
+      };
+
+      console.log('📊 Current Status:', status);
+
+      // Also log to the page
+      const infoBox = document.querySelector('.info-box');
+      infoBox.innerHTML = `
+                <strong>📊 Last Status Check:</strong><br>
+                Test Feature: ${testCheckbox ? '✅' : '❌'}<br>
+                Advanced Mode: ${advancedMode ? '✅' : '❌'}<br>
+                Time: ${status.timestamp}
+            `;
+    }
+
+    // Form handling functions
+    function updateRangeValue(value) {
+      document.getElementById('range-value').textContent = value;
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const data = {};
+
+      // Convert FormData to regular object
+      for (let [key, value] of formData.entries()) {
+        if (data[key]) {
+          // Handle multiple values (like checkboxes with same name)
+          if (Array.isArray(data[key])) {
+            data[key].push(value);
+          } else {
+            data[key] = [data[key], value];
+          }
+        } else {
+          data[key] = value;
+        }
+      }
+
+      console.log('📝 Form submitted with data:', data);
+      showFormStatus('Form submitted successfully! Check console for data.', 'success');
+    }
+
+    function validateForm() {
+      const form = document.getElementById('test-form');
+      const requiredFields = form.querySelectorAll('[required]');
+      let isValid = true;
+      let messages = [];
+
+      // Check required fields
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          isValid = false;
+          messages.push(`${field.name || field.id} is required`);
+        }
+      });
+
+      // Check email format
+      const emailInput = document.getElementById('email-input');
+      if (emailInput.value && !emailInput.validity.valid) {
+        isValid = false;
+        messages.push('Invalid email format');
+      }
+
+      // Check URL format
+      const urlInput = document.getElementById('url-input');
+      if (urlInput.value && !urlInput.validity.valid) {
+        isValid = false;
+        messages.push('Invalid URL format');
+      }
+
+      const status = isValid ? 'Form is valid! ✅' : `Form validation errors: ${messages.join(', ')}`;
+      const type = isValid ? 'success' : 'error';
+
+      console.log(`🔍 Form validation: ${status}`);
+      showFormStatus(status, type);
+    }
+
+    function fillSampleData() {
+      // Fill text inputs
+      document.getElementById('text-input').value = 'Sample text input';
+      document.getElementById('email-input').value = 'test@example.com';
+      document.getElementById('password-input').value = 'password123';
+      document.getElementById('search-input').value = 'sample search';
+
+      // Fill number and range
+      document.getElementById('number-input').value = 75;
+      document.getElementById('range-input').value = 80;
+      updateRangeValue(80);
+
+      // Fill date and time
+      const now = new Date();
+      document.getElementById('date-input').value = now.toISOString().split('T')[0];
+      document.getElementById('time-input').value = '14:30';
+      document.getElementById('datetime-input').value = now.toISOString().slice(0, 16);
+
+      // Set checkboxes
+      document.getElementById('checkbox-1').checked = true;
+      document.getElementById('checkbox-3').checked = true;
+
+      // Set radio button
+      document.getElementById('radio-3').checked = true;
+
+      // Set selects
+      document.getElementById('single-select').value = 'option3';
+      const multiSelect = document.getElementById('multiple-select');
+      multiSelect.options[1].selected = true; // Item 2
+      multiSelect.options[4].selected = true; // Item 5
+
+      // Fill textarea
+      document.getElementById('textarea-input').value = 'This is sample content for the textarea field. It demonstrates multi-line text input.';
+
+      // Set color and URL
+      document.getElementById('color-input').value = '#ff6b35';
+      document.getElementById('url-input').value = 'https://cordyceps-example.com';
+
+      console.log('📝 Sample data filled in form');
+      showFormStatus('Sample data has been filled into the form!', 'info');
+    }
+
+    function showFormStatus(message, type = 'info') {
+      const statusDiv = document.getElementById('form-status');
+      statusDiv.style.display = 'block';
+      statusDiv.textContent = message;
+
+      // Set background color based on type
+      switch (type) {
+        case 'success':
+          statusDiv.style.backgroundColor = '#d4edda';
+          statusDiv.style.borderColor = '#c3e6cb';
+          statusDiv.style.color = '#155724';
+          break;
+        case 'error':
+          statusDiv.style.backgroundColor = '#f8d7da';
+          statusDiv.style.borderColor = '#f5c6cb';
+          statusDiv.style.color = '#721c24';
+          break;
+        case 'info':
+        default:
+          statusDiv.style.backgroundColor = '#d1ecf1';
+          statusDiv.style.borderColor = '#bee5eb';
+          statusDiv.style.color = '#0c5460';
+          break;
+      }
+
+      // Hide after 5 seconds
+      setTimeout(() => {
+        statusDiv.style.display = 'none';
+      }, 5000);
+    }
+
+    // File Input Handler Functions
+    function enableDisabledInput() {
+      const disabledInput = document.getElementById('disabled-file-input');
+      disabledInput.disabled = false;
+      console.log('✅ Disabled file input has been enabled');
+      showFormStatus('Disabled file input has been enabled!', 'success');
+    }
+
+    function showFileStatus() {
+      const fileInputs = document.querySelectorAll('input[type="file"]');
+      const statusDiv = document.getElementById('file-status');
+      const fileListDiv = document.getElementById('file-list');
+
+      let statusHTML = '';
+      let totalFiles = 0;
+      let firstInputWithFiles = null;
+
+      fileInputs.forEach(input => {
+        if (input.files && input.files.length > 0) {
+          // Track the first input that has files for scrolling
+          if (!firstInputWithFiles) {
+            firstInputWithFiles = input;
+          }
+
+          const inputName = input.id || input.name || 'file-input';
+          const fileCount = input.files.length;
+
+          if (fileCount === 1) {
+            // Single file: "file-input: 1 file(s) • package.json (application/json, 3.41 KB)"
+            const file = input.files[0];
+            const fileType = file.type || 'unknown type';
+            const fileSize = formatFileSize(file.size);
+            statusHTML += `<div><strong>${inputName}:</strong> ${fileCount} file(s) • ${file.name} (${fileType}, ${fileSize})</div>`;
+          } else {
+            // Multiple files: show count first, then list each file
+            statusHTML += `<div><strong>${inputName}:</strong> ${fileCount} file(s)</div>`;
+            Array.from(input.files).forEach((file) => {
+              const fileType = file.type || 'unknown type';
+              const fileSize = formatFileSize(file.size);
+              statusHTML += `<div style="margin-left: 1em;">• ${file.name} (${fileType}, ${fileSize})</div>`;
+            });
+          }
+          totalFiles += fileCount;
+        }
+      });
+
+      if (totalFiles > 0) {
+        fileListDiv.innerHTML = statusHTML;
+        statusDiv.style.display = 'block';
+        console.log(`📁 File status updated: ${totalFiles} total files across all inputs`);
+      } else {
+        statusDiv.style.display = 'none';
+        console.log('📁 File status: No files selected.');
+      }
+    }
+
+    // Make showFileStatus available globally for programmatic access
+    window.showFileStatus = showFileStatus;
+
+    // Add a function to force refresh all file status displays
+    function refreshFileStatus() {
+      console.log('🔄 Force refreshing file status display...');
+      showFileStatus();
+    }
+    window.refreshFileStatus = refreshFileStatus;
+
+    function clearAllFiles() {
+      const fileInputs = document.querySelectorAll('input[type="file"]');
+      fileInputs.forEach(input => {
+        input.value = '';
+      });
+
+      document.getElementById('file-status').style.display = 'none';
+      console.log('🗑️ All file inputs have been cleared');
+      showFormStatus('All file inputs have been cleared!', 'info');
+      showFileStatus(); // Update status after clearing
+    }
+
+    function triggerHiddenInput() {
+      const hiddenInput = document.getElementById('hidden-file-input');
+      hiddenInput.click();
+      console.log('👆 Hidden file input triggered');
+    }
+
+    function formatFileSize(bytes) {
+      if (bytes === 0) return '0 Bytes';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+
+    // Add event listeners for file inputs
+    function setupFileInputListeners() {
+      const fileInputs = document.querySelectorAll('input[type="file"]');
+      fileInputs.forEach(input => {
+        // Listen for multiple events to catch programmatic changes
+        ['change', 'input'].forEach(eventType => {
+          input.addEventListener(eventType, function (e) {
+            const files = e.target.files;
+            if (files) {
+              console.log(`📁 File input ${e.target.id} ${eventType} event: ${files.length} file(s) selected`);
+              if (files.length > 0) {
+                Array.from(files).forEach((file, index) => {
+                  console.log(`  • File ${index + 1}: ${file.name} (${file.type || 'unknown type'}, ${formatFileSize(file.size)})`);
+                });
+              }
+              // Automatically update the visual status on any change
+              showFileStatus();
+            }
+          });
+        });
+
+        // Add a property observer to detect when files property changes programmatically
+        let lastFileCount = input.files ? input.files.length : 0;
+
+        // Use a MutationObserver to watch for attribute changes
+        const observer = new MutationObserver(() => {
+          const currentFileCount = input.files ? input.files.length : 0;
+          if (currentFileCount !== lastFileCount) {
+            console.log(`📁 File input ${input.id} detected programmatic change: ${lastFileCount} → ${currentFileCount} files`);
+            lastFileCount = currentFileCount;
+            showFileStatus();
+          }
+        });
+
+        observer.observe(input, {
+          attributes: true,
+          attributeFilter: ['value']
+        });
+
+        // Also set up a periodic check for programmatic changes
+        setInterval(() => {
+          const currentFileCount = input.files ? input.files.length : 0;
+          if (currentFileCount !== lastFileCount) {
+            console.log(`📁 File input ${input.id} periodic check detected change: ${lastFileCount} → ${currentFileCount} files`);
+            lastFileCount = currentFileCount;
+            showFileStatus();
+          }
+        }, 500); // Check every 500ms
+      });
+    }
+
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log('🚀 Cordyceps Example Page loaded');
+      createShadowDOM();
+
+      // Setup file input listeners
+      setupFileInputListeners();
+
+      // Initialize drag and drop functionality
+      initializeDragAndDrop();
+
+      // Add some event listeners
+      document.getElementById('test-checkbox').addEventListener('change', function (e) {
+        console.log(`🎯 Test checkbox changed to: ${e.target.checked}`);
+      });
+
+      document.getElementById('advanced-mode').addEventListener('change', function (e) {
+        console.log(`🎯 Advanced mode changed to: ${e.target.checked}`);
+      });
+    });
+
+    // Drag and Drop functionality
+    function initializeDragAndDrop() {
+      console.log('🎯 Initializing drag and drop functionality');
+
+      // Make draggable items draggable
+      const draggableItems = document.querySelectorAll('.draggable-item, .sortable-item');
+      draggableItems.forEach(item => {
+        item.draggable = true;
+
+        item.addEventListener('dragstart', function (e) {
+          const itemId = e.target.id || e.target.getAttribute('data-testid') || e.target.textContent;
+          e.dataTransfer.setData('text/plain', itemId);
+          e.target.classList.add('dragging');
+          console.log(`🎯 Drag started: ${itemId}`);
+        });
+
+        item.addEventListener('dragend', function (e) {
+          e.target.classList.remove('dragging');
+          console.log(`🎯 Drag ended: ${e.target.textContent}`);
+        });
+      });
+
+      // Make drop zones droppable
+      const dropZones = document.querySelectorAll('.drop-zone, .sortable-container');
+      dropZones.forEach(zone => {
+        zone.addEventListener('dragover', function (e) {
+          e.preventDefault();
+          e.target.classList.add('drag-over');
+        });
+
+        zone.addEventListener('dragleave', function (e) {
+          if (!e.target.contains(e.relatedTarget)) {
+            e.target.classList.remove('drag-over');
+          }
+        });
+
+        zone.addEventListener('drop', function (e) {
+          e.preventDefault();
+          e.target.classList.remove('drag-over');
+
+          const itemId = e.dataTransfer.getData('text/plain');
+          const draggedElement = document.getElementById(itemId) ||
+            document.querySelector(`[data-testid="${itemId}"]`) ||
+            Array.from(draggableItems).find(item => item.textContent === itemId);
+
+          if (draggedElement) {
+            const dropZoneId = e.target.id || e.target.getAttribute('data-testid') || e.target.className;
+            console.log(`🎯 Item dropped: ${itemId} -> ${dropZoneId}`);
+
+            if (e.target.classList.contains('drop-zone')) {
+              // Clone the element for drop zones
+              const clone = draggedElement.cloneNode(true);
+              clone.style.margin = '0.25em';
+              clone.style.display = 'inline-block';
+              // Make cloned items draggable too
+              clone.draggable = true;
+              clone.addEventListener('dragstart', function (e) {
+                const itemId = e.target.id || e.target.getAttribute('data-testid') || e.target.textContent;
+                e.dataTransfer.setData('text/plain', itemId);
+                e.target.classList.add('dragging');
+              });
+              clone.addEventListener('dragend', function (e) {
+                e.target.classList.remove('dragging');
+              });
+
+              e.target.appendChild(clone);
+              e.target.classList.add('has-items');
+            } else if (e.target.classList.contains('sortable-container')) {
+              // Move the element for sortable containers
+              e.target.appendChild(draggedElement);
+            }
+          }
+        });
+      });
+
+      console.log('✅ Drag and drop initialized');
+    }
+
+    // =============================================================================
+    // DOWNLOAD TESTING FUNCTIONALITY - REFACTORED AND ORGANIZED
+    // =============================================================================
+
+    /**
+     * Download Manager - Centralized download functionality
+     */
+    const DownloadManager = {
+      // Global state
+      counter: 0,
+      logElement: null,
+
+      // Initialize the download manager
+      init() {
+        this.logElement = document.getElementById('download-log');
+      },
+
+      // Logging functionality
+      logDownload(filename, type = 'basic') {
+        if (!this.logElement) this.init();
+
+        const timestamp = new Date().toLocaleTimeString();
+        const entry = document.createElement('div');
+        entry.innerHTML = `[${timestamp}] ${type}: Downloaded "${filename}"`;
+        entry.style.margin = '0.25em 0';
+        entry.style.padding = '0.25em';
+        entry.style.backgroundColor = '#e8f5e8';
+        entry.style.borderRadius = '0.25em';
+        this.logElement?.appendChild(entry);
+        console.log(`📥 Download: ${filename} (${type})`);
+      }
+    };
+
+    // =============================================================================
+    // CORDYCEPS DOWNLOAD FUNCTIONS - SERVER-SERVED FILES
+    // =============================================================================
+
+    function downloadTextFile() {
+      const link = document.createElement('a');
+      link.href = '/downloads/test-file.txt';
+      link.download = 'test-file.txt';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      DownloadManager.logDownload('test-file.txt', 'text file');
+      return 'test-file.txt';
+    }
+
+    function downloadCsvFile() {
+      const link = document.createElement('a');
+      link.href = '/downloads/test-data.csv';
+      link.download = 'test-data.csv';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      DownloadManager.logDownload('test-data.csv', 'csv file');
+      return 'test-data.csv';
+    }
+
+    function downloadImageFile() {
+      const link = document.createElement('a');
+      link.href = '/downloads/test-image.png';
+      link.download = 'test-image.png';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      DownloadManager.logDownload('test-image.png', 'png image');
+      return 'test-image.png';
+    }
+
+    // =============================================================================
+    // DOWNLOAD STATUS AND CONTROL FUNCTIONS
+    // =============================================================================
+
+    function showDownloadStatus() {
+      const statusDiv = document.getElementById('download-status');
+      statusDiv.style.display = 'block';
+
+      if (DownloadManager.counter === 0) {
+        document.getElementById('download-log').innerHTML = '<em>No downloads yet. Click any download button to test.</em>';
+      }
+    }
+
+    function clearDownloadLog() {
+      if (!DownloadManager.logElement) DownloadManager.init();
+      DownloadManager.logElement.innerHTML = '';
+      DownloadManager.counter = 0;
+      console.log('📥 Download log cleared');
+    }
+
+    // Initialize the download manager when the script loads
+    DownloadManager.init();
+  </script>
+
+
+</body>
+
+</html>

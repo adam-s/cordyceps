@@ -1,0 +1,27 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "prettier.printWidth": 80,
+  "prettier.requireConfig": false,
+  "prettier.useEditorConfig": false,
+  "cSpell.words": [
+    "braintrust",
+    "browseruse",
+    "cordyceps",
+    "cordycepts",
+    "deepseek",
+    "evals",
+    "langchain",
+    "Screenshotter",
+    "xpaths"
+  ]
+}

@@ -1,0 +1,8 @@
+File with spaces in name test
+Generated: 2025-08-13T12:00:00.000Z
+Server: Static file version
+
+This file demonstrates download functionality with:
+- Spaces in the filename
+- Proper URL encoding handling
+- Server-side file delivery

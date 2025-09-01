@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Test Page 2</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      color: white;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    }
+
+    .nav-button {
+      background: linear-gradient(45deg, #4facfe, #00f2fe);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px;
+      box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+    }
+
+    .nav-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
+    }
+
+    .status {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-family: monospace;
+    }
+
+    .spa-section {
+      margin: 20px 0;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>🎯 Navigation Test Page 2</h1>
+
+    <div class="status" id="page-status">
+      Page: nav-page-2.html<br>
+      URL: <span id="current-url">Loading...</span><br>
+      History Length: <span id="history-length">Unknown</span>
+    </div>
+
+    <div class="navigation-actions">
+      <h2>🚀 Cross-Document Navigation</h2>
+      <a href="/nav-page-1" class="nav-button" data-testid="nav-to-page-1">Go to
+        Page 1</a>
+      <a href="/nav-page-3" class="nav-button" data-testid="nav-to-page-3">Go to
+        Page 3</a>
+      <a href="/" class="nav-button" data-testid="nav-to-home">Back to Home</a>
+    </div>
+
+    <div class="spa-section">
+      <h2>⚡ Advanced SPA Navigation</h2>
+      <button class="nav-button" onclick="advancedSPANav(1)"
+        data-testid="spa-nav-step1">Advanced Step 1</button>
+      <button class="nav-button" onclick="advancedSPANav(2)"
+        data-testid="spa-nav-step2">Advanced Step 2</button>
+      <button class="nav-button" onclick="advancedSPANav(3)"
+        data-testid="spa-nav-step3">Advanced Step 3</button>
+      <button class="nav-button" onclick="resetSPANav()"
+        data-testid="spa-nav-reset">Reset SPA</button>
+    </div>
+
+    <div class="history-controls">
+      <h2>⏳ History Navigation</h2>
+      <button class="nav-button" onclick="goBack()"
+        data-testid="history-back">Browser Back</button>
+      <button class="nav-button" onclick="goForward()"
+        data-testid="history-forward">Browser Forward</button>
+    </div>
+
+    <div class="complex-navigation">
+      <h2>🔄 Complex Navigation Test</h2>
+      <button class="nav-button" onclick="doComplexNavigation()"
+        data-testid="complex-nav">Run Complex Test</button>
+      <div id="complex-nav-log"
+        style="background: rgba(0, 0, 0, 0.2); padding: 10px; margin: 10px 0; border-radius: 5px; font-family: monospace; font-size: 12px; max-height: 150px; overflow-y: auto;">
+      </div>
+    </div>
+
+    <div
+      style="margin-top: 100px; padding: 20px; background: rgba(0, 255, 0, 0.1); border-radius: 8px;">
+      <h3>🧪 Test Markers</h3>
+      <p>This page is designed for automated navigation testing with advanced
+        SPA functionality.</p>
+      <ul>
+        <li>Page identifier: <code
+            data-testid="page-identifier">nav-page-2</code></li>
+        <li>Navigation ready: <code data-testid="nav-ready">false</code></li>
+        <li>SPA state: <code data-testid="spa-state">initial</code></li>
+        <li>Complex nav status: <code
+            data-testid="complex-nav-status">ready</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    function updateStatus() {
+      document.getElementById('current-url').textContent = window.location.href;
+      document.getElementById('history-length').textContent = history.length;
+    }
+
+    function advancedSPANav(step) {
+      console.log(`🚀 Advanced SPA navigation to step ${step}`);
+
+      // Update URL using pushState with more complex state
+      const newUrl = window.location.origin + `/spa-step-${step}`;
+      const state = {
+        step,
+        page: 'nav-page-2',
+        timestamp: Date.now(),
+        data: { advanced: true, step }
+      };
+
+      history.pushState(state, '', newUrl);
+
+      // Update the display
+      document.querySelector('[data-testid="spa-state"]').textContent = `step-${step}`;
+      updateStatus();
+      logComplexNav(`Advanced SPA: step-${step}`);
+    }
+
+    function resetSPANav() {
+      console.log('🔄 Resetting SPA navigation');
+      const baseUrl = window.location.origin + '/nav-page-2';
+      history.pushState({ page: 'nav-page-2', reset: true }, '', baseUrl);
+      document.querySelector('[data-testid="spa-state"]').textContent = 'reset';
+      updateStatus();
+      logComplexNav('SPA navigation reset');
+    }
+
+    function goBack() {
+      console.log('🔙 Calling history.back()');
+      history.back();
+    }
+
+    function goForward() {
+      console.log('🔜 Calling history.forward()');
+      history.forward();
+    }
+
+    function logComplexNav(message) {
+      const log = document.getElementById('complex-nav-log');
+      const timestamp = new Date().toLocaleTimeString();
+      log.innerHTML += `[${timestamp}] ${message}\n`;
+      log.scrollTop = log.scrollHeight;
+    }
+
+    async function doComplexNavigation() {
+      document.querySelector('[data-testid="complex-nav-status"]').textContent = 'running';
+      logComplexNav('Starting complex navigation test...');
+
+      // Step 1: Advanced SPA navigation
+      advancedSPANav(1);
+      await new Promise(r => setTimeout(r, 300));
+
+      // Step 2: Another advanced step
+      advancedSPANav(2);
+      await new Promise(r => setTimeout(r, 300));
+
+      // Step 3: Go back via history API
+      history.back();
+      logComplexNav('History back called');
+      await new Promise(r => setTimeout(r, 300));
+
+      // Step 4: Go forward via history API
+      history.forward();
+      logComplexNav('History forward called');
+      await new Promise(r => setTimeout(r, 300));
+
+      // Step 5: Final advanced step
+      advancedSPANav(3);
+
+      document.querySelector('[data-testid="complex-nav-status"]').textContent = 'completed';
+      logComplexNav('Complex navigation test completed!');
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function () {
+      updateStatus();
+      document.querySelector('[data-testid="nav-ready"]').textContent = 'true';
+      console.log('🚀 Navigation Test Page 2 loaded and ready');
+    });
+
+    // Listen for navigation events
+    window.addEventListener('popstate', function (event) {
+      console.log('📍 Popstate event:', event);
+      logComplexNav(`Popstate: ${window.location.pathname}`);
+
+      if (event.state) {
+        if (event.state.step) {
+          document.querySelector('[data-testid="spa-state"]').textContent = `step-${event.state.step}`;
+        } else if (event.state.reset) {
+          document.querySelector('[data-testid="spa-state"]').textContent = 'reset';
+        } else {
+          document.querySelector('[data-testid="spa-state"]').textContent = 'initial';
+        }
+      } else {
+        document.querySelector('[data-testid="spa-state"]').textContent = 'initial';
+      }
+
+      updateStatus();
+    });
+
+    // Update status periodically
+    setInterval(updateStatus, 1000);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+a,
+button,
+div,
+form,
+html,
+img,
+label,
+span,
+textarea {
+  border: 0;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+
+body,
+button,
+div,
+form,
+html,
+img,
+label,
+span,
+textarea {
+  color: inherit;
+}
+
+table {
+  font: inherit;
+}
+
+body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-font-smoothing: antialiased;
+  background-color: #141414;
+  border: 0;
+  font-family:
+    'Segoe UI Web (West European)',
+    Segoe UI,
+    -apple-system,
+    BlinkMacSystemFont,
+    Roboto,
+    Helvetica Neue,
+    sans-serif;
+  font-size: inherit;
+  font-stretch: inherit;
+  font-style: inherit;
+  font-variant: inherit;
+  font-weight: inherit;
+  height: 100%;
+  line-height: inherit;
+  margin: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0;
+  position: absolute !important;
+  vertical-align: baseline;
+  width: 100%;
+}
+
+#app {
+  overflow: hidden;
+  width: 100%;
+}

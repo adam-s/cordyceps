@@ -1,0 +1,9 @@
+Download via link test
+Generated: 2025-08-13T12:00:00.000Z
+Method: Server-side link download
+
+This file demonstrates:
+- Link-based downloads
+- Direct file serving
+- Anchor tag downloads
+- Proper download attributes

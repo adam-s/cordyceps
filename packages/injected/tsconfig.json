@@ -1,0 +1,25 @@
+{
+  "extends": "@crx-deep-research/tsconfig/base",
+  "compilerOptions": {
+    "outDir": "dist",
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@injected/*": [
+        "lib/*"
+      ]
+    },
+    "types": [
+      "chrome",
+      "vitest/globals"
+    ],
+    "target": "ESNext"
+  },
+  "include": [
+    "index.ts",
+    "lib",
+    "src",
+    "./global.d.ts",
+    "./src/vite-env.d.ts"
+  ]
+}
