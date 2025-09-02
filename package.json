@@ -53,7 +53,7 @@
     "postcss": "^8.4.38",
     "prettier": "^3.3.2",
     "rimraf": "^5.0.7",
-    "tailwindcss": "^3.4.4",
+    "tailwindcss": "^4.1.12",
     "tslib": "^2.6.3",
     "tsx": "^4.7.1",
     "turbo": "^2.0.3",
