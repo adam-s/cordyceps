@@ -22,7 +22,7 @@
   },
   "type": "module",
   "dependencies": {
-    "@vitejs/plugin-react": "^4.5.0",
+    "@vitejs/plugin-react": "^5.0.2",
     "eslint-plugin-jsdoc": "^48.7.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
