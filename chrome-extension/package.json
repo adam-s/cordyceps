@@ -26,7 +26,7 @@
     "webextension-polyfill": "^0.12.0"
   },
   "devDependencies": {
-    "@laynezh/vite-plugin-lib-assets": "^1.1.0",
+    "@laynezh/vite-plugin-lib-assets": "^2.1.0",
     "@crx-deep-research/dev-utils": "workspace:*",
     "@crx-deep-research/hmr": "workspace:*",
     "@crx-deep-research/tsconfig": "workspace:*",
