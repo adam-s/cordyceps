@@ -29,6 +29,6 @@
     "glob": "^11.0.0",
     "rollup": "^4.18.0",
     "rollup-plugin-copy": "^3.5.0",
-    "sinon": "^18.0.0"
+    "sinon": "^21.0.0"
   }
 }
