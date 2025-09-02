@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@crx-deep-research/tsconfig": "workspace:*",
-    "jsdom": "^25.0.1",
+    "jsdom": "^26.1.0",
     "vitest": "^2.0.0"
   },
   "dependencies": {
