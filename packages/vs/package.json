@@ -24,7 +24,7 @@
   "devDependencies": {
     "@crx-deep-research/hmr": "workspace:*",
     "@crx-deep-research/tsconfig": "workspace:*",
-    "@types/glob": "^8.1.0",
+    "@types/glob": "^9.0.0",
     "@types/sinon": "^17.0.3",
     "glob": "^11.0.0",
     "rollup": "^4.18.0",
