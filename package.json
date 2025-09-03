@@ -31,7 +31,7 @@
     "vite": "^5.4.19"
   },
   "devDependencies": {
-    "@types/chrome": "^0.0.268",
+    "@types/chrome": "^0.1.4",
     "@types/node": "^20.17.47",
     "@types/react": "^19.1.6",
     "@types/react-dom": "^19.1.5",
