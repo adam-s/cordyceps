@@ -18,7 +18,7 @@
     "@crx-deep-research/tsconfig": "workspace:*",
     "@playwright/test": "^1.54.2",
     "@types/express": "^4.17.21",
-    "@types/node": "^22.0.0",
+    "@types/node": "^24.3.0",
     "express": "^4.21.2"
   }
 }
