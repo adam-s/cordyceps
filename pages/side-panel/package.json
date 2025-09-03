@@ -60,7 +60,7 @@
     "@visx/xychart": "^3.12.0",
     "@xstate/react": "^4.1.3",
     "ai": "^5.0.15",
-    "autoevals": "^0.0.130",
+    "autoevals": "^0.0.131",
     "braintrust": "^0.2.4",
     "d3-array": "^3.2.4",
     "d3-scale": "^4.0.2",
