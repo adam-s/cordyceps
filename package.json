@@ -23,7 +23,7 @@
   "type": "module",
   "dependencies": {
     "@vitejs/plugin-react": "^4.5.0",
-    "eslint-plugin-jsdoc": "^48.7.0",
+    "eslint-plugin-jsdoc": "^55.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "socket.io": "^4.7.5",
