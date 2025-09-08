@@ -22,7 +22,7 @@
     "@ai-sdk/azure": "^2.0.16",
     "@ai-sdk/cerebras": "^1.0.10",
     "@ai-sdk/deepseek": "^1.0.10",
-    "@ai-sdk/google": "^2.0.7",
+    "@ai-sdk/google": "^2.0.13",
     "@ai-sdk/groq": "^2.0.11",
     "@ai-sdk/mistral": "^2.0.7",
     "@ai-sdk/openai": "^2.0.16",
